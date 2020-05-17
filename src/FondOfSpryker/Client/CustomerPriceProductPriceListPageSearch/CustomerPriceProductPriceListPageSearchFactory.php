@@ -8,8 +8,6 @@ use Spryker\Client\Kernel\AbstractFactory;
 class CustomerPriceProductPriceListPageSearchFactory extends AbstractFactory
 {
     /**
-     * @throws
-     *
      * @return \FondOfSpryker\Client\CustomerPriceProductPriceListPageSearch\Dependency\Client\CustomerPriceProductPriceListPageSearchToCustomerClientInterface
      */
     public function getCustomerClient(): CustomerPriceProductPriceListPageSearchToCustomerClientInterface

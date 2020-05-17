@@ -18,14 +18,14 @@ use Spryker\Client\Search\Dependency\Plugin\QueryInterface;
 class PriceListQueryExpanderPlugin extends AbstractPlugin implements QueryExpanderPluginInterface
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
+     *
+     * @api
      *
      * @param \Spryker\Client\Search\Dependency\Plugin\QueryInterface $searchQuery
      * @param array $requestParameters
      *
      * @return \Spryker\Client\Search\Dependency\Plugin\QueryInterface
-     * @api
-     *
      */
     public function expandQuery(QueryInterface $searchQuery, array $requestParameters = []): QueryInterface
     {
@@ -54,7 +54,7 @@ class PriceListQueryExpanderPlugin extends AbstractPlugin implements QueryExpand
     }
 
     /**
-     * @return void
+     * @return int[]
      */
     protected function getCustomerPriceListIds(): array
     {
