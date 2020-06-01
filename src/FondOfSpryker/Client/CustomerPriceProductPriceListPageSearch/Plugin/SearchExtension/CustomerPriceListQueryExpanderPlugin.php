@@ -1,31 +1,31 @@
 <?php
 
-namespace FondOfSpryker\Client\CustomerPriceProductPriceListPageSearch\Plugin\Search;
+namespace FondOfSpryker\Client\CustomerPriceProductPriceListPageSearch\Plugin\SearchExtension;
 
 use Elastica\Query;
 use Elastica\Query\BoolQuery;
 use Elastica\Query\Terms;
-use Generated\Shared\Search\PageIndexMap;
+use Generated\Shared\Search\PriceProductPriceListIndexMap;
 use Generated\Shared\Transfer\CustomerTransfer;
 use InvalidArgumentException;
 use Spryker\Client\Kernel\AbstractPlugin;
-use Spryker\Client\Search\Dependency\Plugin\QueryExpanderPluginInterface;
-use Spryker\Client\Search\Dependency\Plugin\QueryInterface;
+use Spryker\Client\SearchExtension\Dependency\Plugin\QueryExpanderPluginInterface;
+use Spryker\Client\SearchExtension\Dependency\Plugin\QueryInterface;
 
 /**
  * @method \FondOfSpryker\Client\CustomerPriceProductPriceListPageSearch\CustomerPriceProductPriceListPageSearchFactory getFactory()
  */
-class PriceListQueryExpanderPlugin extends AbstractPlugin implements QueryExpanderPluginInterface
+class CustomerPriceListQueryExpanderPlugin extends AbstractPlugin implements QueryExpanderPluginInterface
 {
     /**
      * {@inheritDoc}
      *
      * @api
      *
-     * @param \Spryker\Client\Search\Dependency\Plugin\QueryInterface $searchQuery
+     * @param \Spryker\Client\SearchExtension\Dependency\Plugin\QueryInterface $searchQuery
      * @param array $requestParameters
      *
-     * @return \Spryker\Client\Search\Dependency\Plugin\QueryInterface
+     * @return \Spryker\Client\SearchExtension\Dependency\Plugin\QueryInterface
      */
     public function expandQuery(QueryInterface $searchQuery, array $requestParameters = []): QueryInterface
     {
@@ -50,7 +50,7 @@ class PriceListQueryExpanderPlugin extends AbstractPlugin implements QueryExpand
         }
 
         $boolQuery = $this->getBoolQuery($query);
-        $boolQuery->addFilter(new Terms(PageIndexMap::PRICE_LIST, $customerPriceListIds));
+        $boolQuery->addFilter(new Terms(PriceProductPriceListIndexMap::ID_PRICE_LIST, $customerPriceListIds));
     }
 
     /**
